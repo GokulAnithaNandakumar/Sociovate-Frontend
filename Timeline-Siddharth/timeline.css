@@ -52,11 +52,19 @@ img {
   left: 46vw;
 }
 
+@media (max-width: 1025px) {
+  .box {
+    font-size: 1.25rem;
+    box-shadow: -0.25rem 0.25rem #044728;
+    padding: 0.25rem 0.5rem;
+  }
+}
+
 @media (max-width: 768px) {
   .box {
     font-size: 0.5rem;
     box-shadow: -0.25rem 0.25rem #044728;
-    padding: 0.25rem 0.5rem;
+    padding: 0.75rem 1rem;
   }
 }
 
@@ -92,33 +100,64 @@ img {
   }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1025px) {
   #b1 {
-    top: 17vh;
+    top: 22vh;
     left: 28vw;
   }
   #b2 {
-    top: 38vh;
+    top: 54vh;
     left: 43vw;
   }
   #b3 {
-    top: 62vh;
-    left: 9vw;
+    top: 84vh;
+    left: 24vw;
   }
   #b4 {
-    top: 89vh;
-    left: 37vw;
+    top: 117vh;
+    left: 51vw;
   }
   #b5 {
-    top: 123vh;
-    left: 33vw;
+    top: 156vh;
+    left: 46vw;
   }
   #b6 {
-    top: 140vh;
-    left: 1vw;
+    top: 180vh;
+    left: 15vw;
   }
   #b7 {
-    top: 167vh;
+    top: 210vh;
+    left: 46vw;
+  }
+}
+
+@media (max-width: 540px) {
+  #b1 {
+    top: 10vh;
+    left: 28vw;
+  }
+  #b2 {
+    top: 24vh;
+    left: 43vw;
+  }
+  #b3 {
+    top: 38vh;
+    left: 27vw;
+  }
+  #b4 {
+    top: 53vh;
+    left: 55vw;
+  }
+  #b5 {
+    top: 71vh;
+    left: 51vw;
+  }
+  #b6 {
+    top: 81vh;
+    left: 19vw;
+  }
+  #b7 {
+    top: 95vh;
     left: 46vw;
   }
 }
@@ -154,6 +193,98 @@ img {
   }
 }
 
+@media (max-width: 413px) {
+  #b1 {
+    top: 6vh;
+    left: 28vw;
+  }
+  #b2 {
+    top: 14vh;
+    left: 43vw;
+  }
+  #b3 {
+    top: 22vh;
+    left: 24vw;
+  }
+  #b4 {
+    top: 33vh;
+    left: 50vw;
+  }
+  #b5 {
+    top: 42vh;
+    left: 46vw;
+  }
+  #b6 {
+    top: 49vh;
+    left: 13vw;
+  }
+  #b7 {
+    top: 57vh;
+    left: 46vw;
+  }
+}
+
+@media (max-width: 391px) {
+  #b1 {
+    top: 6vh;
+    left: 28vw;
+  }
+  #b2 {
+    top: 15vh;
+    left: 43vw;
+  }
+  #b3 {
+    top: 23vh;
+    left: 21vw;
+  }
+  #b4 {
+    top: 33vh;
+    left: 48vw;
+  }
+  #b5 {
+    top: 43vh;
+    left: 45vw;
+  }
+  #b6 {
+    top: 50vh;
+    left: 12vw;
+  }
+  #b7 {
+    top: 58vh;
+    left: 46vw;
+  }
+}
+
+@media (max-width: 376px) {
+  #b1 {
+    top: 7vh;
+    left: 28vw;
+  }
+  #b2 {
+    top: 19vh;
+    left: 43vw;
+  }
+  #b3 {
+    top: 30vh;
+    left: 20vw;
+  }
+  #b4 {
+    top: 43vh;
+    left: 46vw;
+  }
+  #b5 {
+    top: 57vh;
+    left: 42vw;
+  }
+  #b6 {
+    top: 65vh;
+    left: 10vw;
+  }
+  #b7 {
+    top: 76vh;
+    left: 46vw;
+  }
+}
 
 @media (max-width: 320px) {
   #b1 {
