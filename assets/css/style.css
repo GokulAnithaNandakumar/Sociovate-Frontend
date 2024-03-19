@@ -8,14 +8,16 @@ body {
   padding: 0;
 }
 
-
+.main {
+  background-color: #122315;
+}
 
 .first-div {
   background-color: antiquewhite;
   width: 100%;
   height: 750px;  /* Gowtham change this to align the zig zac */
   position: relative;
-  /* -webkit-mask:conic-gradient(from -45deg at bottom,#0000,#000 1deg 89deg,#0000 90deg) 50%/80px 100%; */
+  -webkit-mask:conic-gradient(from -45deg at bottom,#0000,#000 1deg 89deg,#0000 90deg) 50%/80px 100%;
 }
 
 .collab {
@@ -196,7 +198,7 @@ body {
   background-color: #122315;
   margin-top: -1px;
   border: none;
-  /* -webkit-mask:conic-gradient(from -45deg at bottom,#0000,#000 1deg 89deg,#0000 90deg) 50%/80px 100%; */
+  -webkit-mask:conic-gradient(from -45deg at bottom,#0000,#000 1deg 89deg,#0000 90deg) 50%/80px 100%;
 }
 
 
@@ -827,3 +829,45 @@ img {
     }
     }
     
+
+
+
+
+    .triangle-container {
+      display: flex; /* Use flexbox */
+  }
+  
+  .rounded-triangle {
+      position: relative;
+      background-color: #122315;
+      text-align: left;
+      margin-right: 10px; /* Add some margin between triangles */
+  }
+  
+  .rounded-triangle:before,
+  .rounded-triangle:after {
+      content: '';
+      position: absolute;
+      background-color: inherit;
+  }
+  
+  .rounded-triangle,
+  .rounded-triangle:before,
+  .rounded-triangle:after {
+      width:  4em;
+      height: 4em;
+      border-top-right-radius: 30%;
+  }
+  
+  .rounded-triangle {
+      transform: rotate(-60deg) skewX(-30deg) scale(1,.866);
+  }
+  
+  .rounded-triangle:before {
+      transform: rotate(-135deg) skewX(-45deg) scale(1.414,.707) translate(0,-50%);
+  }
+  
+  .rounded-triangle:after {
+      transform: rotate(135deg) skewY(-45deg) scale(.707,1.414) translate(50%);
+  }
+  
