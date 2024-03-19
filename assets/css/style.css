@@ -252,7 +252,7 @@ u {
 .third-div {
   background-color: antiquewhite;
   width: 100%;
-  height: 580px;
+  /* height: 580px; */
 }
 
 .sdgs {
@@ -299,15 +299,18 @@ u {
   font-size: 40px;
 }
 
-.responsive-img {
-  max-width: 100%;
-  height: auto;
+
+
+img {
+  width: 100vw;
+  /* position: relative; */
 }
+
 
 .fourth-div {
   width: auto;
   height: 750px;
-  margin-top: 600px;
+  /* margin-top: 600px; */
   background-color: #28BFE5;
   margin-bottom: 0;
   position: relative; 
@@ -557,7 +560,7 @@ u {
   }
 }
 
-@media screen and (min-width: 768px) and (max-width: 980px) {
+@media screen and (min-width: 768px) and (max-width: 1380px) {
   .collab {
     margin-top: 10%;
   }
@@ -720,3 +723,8 @@ u {
     top: 75%;
   }
 }
+
+
+
+
+
