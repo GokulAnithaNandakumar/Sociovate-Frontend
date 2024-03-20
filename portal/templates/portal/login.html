@@ -45,7 +45,7 @@
             <input type="password" id="password" name="password" />
           </div>
           <p class="forgot-pwd">Forgot password? 
-          <a href="{% url 'password_reset_email_form_view' %}">  Reset</a></p>  
+          <a href="{% url 'password_reset_email_form_view' %}" style="color:lightgreen">  Reset</a></p>  
           {% if messages %} {% for message in messages %}
           <div
             class="alert alert-{{ messages.tags }}"
@@ -76,7 +76,7 @@
           </button>
           <p>
             Don't have an account?
-            <a href="{% url 'register_view' %}">Register</a>
+            <a href="{% url 'register_view' %}" style="color:lightgreen">Register</a>
           </p>
         </form>
       </div>
