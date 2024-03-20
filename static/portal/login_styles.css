@@ -148,6 +148,15 @@
   .login-bg {
     z-index: -1;
   }
+
+  .forgot-pwd {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Clash Display", sans-serif;
+    font-size: 1.25rem;
+    margin-top: 1rem;
+  }
   
   @media only screen and (max-width: 768px) {
     .login-container {
