@@ -300,7 +300,7 @@ def register_view(request):
             return HttpResponseRedirect(reverse("register_view"))
         
         # check if email matches regex
-        if not re.match(r"^[a-zA-Z]+\.[a-zA-Z]+[0-9]{4}@vitstudent.ac.in$", email):
+        if not re.match(r"@vitstudent.ac.in$", email):
             messages.error(request, "Must provide VIT email ID")
             return HttpResponseRedirect(reverse("register_view"))
 
