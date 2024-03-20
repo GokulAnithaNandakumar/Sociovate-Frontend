@@ -406,7 +406,7 @@ def password_reset_email_form_view(request):
             return HttpResponseRedirect(reverse("password_reset_email_form_view"))
         
         # check if email matches regex
-        if not re.match(r"^[a-zA-Z]+\.[a-zA-Z]+[0-9]{4}@vitstudent.ac.in$", email):
+        if not email.endswith("@vitstudent.ac.in"):
             messages.error(request, "Must provide VIT email ID")
             return HttpResponseRedirect(reverse("password_reset_email_form_view"))
         
