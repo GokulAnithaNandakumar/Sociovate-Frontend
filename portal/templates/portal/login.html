@@ -44,8 +44,8 @@
             <label for="password">password</label>
             <input type="password" id="password" name="password" />
           </div>
-          <p class="forgot-pwd">Forgot password?
-          <a href="{% url 'password_reset_email_form_view' %}">Reset</a></p>  
+          <p class="forgot-pwd">Forgot password? 
+          <a href="{% url 'password_reset_email_form_view' %}">  Reset</a></p>  
           {% if messages %} {% for message in messages %}
           <div
             class="alert alert-{{ messages.tags }}"
