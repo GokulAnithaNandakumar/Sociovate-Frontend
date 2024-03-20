@@ -22,7 +22,7 @@ a:hover {
   color: white;
 }
 
-#register_a:hover {
+#register_a:hover p{
   color: white;
   text-decoration: underline;
 }
@@ -79,7 +79,7 @@ a:hover {
 }
 
 .login-btn {
-  font-family: 'Orbitron', sans-serif;
+  font-family: 'Clash Display', sans-serif;
   position: relative;
   width: 90px;
   height: 53px;
@@ -454,6 +454,8 @@ u {
   align-items:normal;
   justify-content: space-around;
 }
+
+
 
 
 

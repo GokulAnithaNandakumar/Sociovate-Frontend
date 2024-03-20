@@ -5,7 +5,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Sociovate - Register</title>
     <link rel="stylesheet" href="{% static 'portal/register_styles.css' %}" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -38,9 +38,11 @@
           <label for="cnf-password">confirm password</label>
           <input type="password" id="cnf-password" name="confirm_password" />
           {% if messages %}
-            {% for message in messages %}
-              <p class="info-msg">{{ message }}</p>
-            {% endfor %}
+          {% for message in messages %}
+           <div class="alert alert-{{ messages.tags }}" style="color: white; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; display: flex; align-items: center; justify-content:center; text-align:center; padding: 10px; margin: 15px; border: 1px solid rgb(255, 255, 255); border-radius: 10px">
+              {{ message }}
+           </div>
+          {% endfor %}
           {% endif %}
           <button><input type="submit" name="submit" placeholder="Submit" id="register-submit"></button>
           <p>Have an account? <a href="{% url 'login_view' %}">Login</a></p>

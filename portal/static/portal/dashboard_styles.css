@@ -231,6 +231,8 @@ h1{
 .rectangle-row {
     display: flex;
     justify-content: space-between; /* Spreads rectangles evenly */
+    flex-wrap: wrap;
+
 }
 
 .rectangle {
@@ -247,7 +249,7 @@ h1{
     align-items: center;
     font-size: 12px;
     line-height: 20px;
-    margin: 0 auto; /* Center the boxes horizontally */
+    margin: 0 10px; /* Center the boxes horizontally */
 }
 
 .icon {

@@ -18,6 +18,7 @@ import regex as re
 
 from .tokens import account_activation_token
 from .models import User, Team, Submission, UserStatus
+from django.contrib import messages
 
 
 @login_required(login_url='/login')
@@ -37,9 +38,9 @@ def dashboard(request):
             members.append(User.objects.get(id = member_id))
 
         submissions = Submission.objects.get(team=user_status.joined_team)
-
+        
         return render(request, "portal/dashboard.html", {
-            'in_team': True, 'member0': members[0], 'member1': members[1] if len(members) == 2 else '-', 'member2': members[2] if len(members) == 3 else '-', 'member3':members[3] if len(members) == 4 else '-' , 'count': len(members), 'submissions':submissions, 'team':team , 'message': '',
+            'in_team': True, 'members':members, 'count': len(members), 'rem':4-len(members), 'submissions':submissions, 'team':team , 'message': '',
         })
     
     return render(request, "portal/dashboard.html")
@@ -152,7 +153,8 @@ def create_team_view(request):
         except:
             submissions = Submission(team=new_team, title="", track="", description="", github_link="", drive_link="")
             submissions.save()
-    
+            
+        messages.success(request, "Team created successfully!")
         return HttpResponseRedirect(reverse("dashboard"))
     
     user = request.user
@@ -171,6 +173,7 @@ def join_team_view(request):
         
         user_status = UserStatus.objects.get(user=request.user)
         if user_status.in_team:
+            messages.error(request, "You are already in a team!")
             return HttpResponseRedirect(reverse("dashboard"))
         
         team_name = request.POST["team_name"]
@@ -180,16 +183,16 @@ def join_team_view(request):
         try:
             team = Team.objects.get(team_name=team_name)
         except:
-            print(request, "Team does not exist!")
+            messages.error(request, "Team does not exist!")
             return HttpResponseRedirect(reverse("join_team_view"))
         
         # check if team passcode matches
         if team.team_passcode != team_passcode:
-            print(request, "Incorrect passcode!")
+            messages.error(request, "Incorrect passcode!")
             return HttpResponseRedirect(reverse("join_team_view"))
         
         if team.members_count == 4:
-            print(request, "Team is full!")
+            messages.error(request, "Team is full!")
             return HttpResponseRedirect(reverse("join_team_view"))
 
         print('team found')
@@ -206,11 +209,13 @@ def join_team_view(request):
         team.save()
         print('teamstatus updated')
         
+        messages.success(request, "Joined team successfully!")
         return HttpResponseRedirect(reverse("dashboard"))
     
     user = request.user
     user_status = UserStatus.objects.get(user=user)
     if user_status.in_team:
+        messages.error(request, "You are already in a team!")
         return HttpResponseRedirect(reverse("dashboard"))
         
     return render(request, "portal/join_team.html", {
@@ -228,6 +233,7 @@ def leave_team_view(request):
         team = Team.objects.get(team_name=user_status.joined_team.team_name)
         team.members_count -= 1
     except:
+        
         return HttpResponseRedirect(reverse("dashboard"))
 
     user_status.in_team = False
@@ -239,6 +245,7 @@ def leave_team_view(request):
     else:
         team.save()
 
+    messages.success(request, "Left team successfully!")
     return HttpResponseRedirect(reverse("dashboard"))
 
 
@@ -320,7 +327,7 @@ def register_view(request):
             
         except IntegrityError:
             if User.objects.filter(username=username).exists():
-                messages.error(request, "Username already taken, try logging in.")
+                messages.error(request, "Username already taken.")
                 return HttpResponseRedirect(reverse("register_view"))
             
             else:
@@ -370,6 +377,10 @@ def activate(request, uidb64, token):
 
         messages.success(request, "Account activated successfully!")
         return HttpResponseRedirect(reverse("login_view"))
+    
+    userstatus = UserStatus.objects.get(user=user)
+    userstatus.delete()
+    user.delete()
     
     messages.error(request, "Activation link expired!")
     return HttpResponseRedirect(reverse("login_view"))
